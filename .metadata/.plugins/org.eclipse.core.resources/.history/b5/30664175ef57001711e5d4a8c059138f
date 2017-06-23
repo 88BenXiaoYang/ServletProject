@@ -40,8 +40,6 @@ public class RegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8"); // 设置响应报文的编码格式，注：编码格式的设置位置要放在所有输出之前，要不会有设置了编码格式但输出内容仍会有乱码出现，即设置编码格式不生效的情况出现
 		
-		System.out.println("*** get request!!! ***");
-		
 		String account = request.getParameter("account"); // 从 request 中获取名为 account 的参数的值  
         String password = request.getParameter("password"); // 从 request 中获取名为 password 的参数的值  
         System.out.println("account:" + account + "\npassword:" + password); // 打印出来看一看  
@@ -120,7 +118,7 @@ public class RegisterServlet extends HttpServlet {
         System.out.println();
         
         PrintWriter pw = response.getWriter(); // 获取 response 的输出流  
-        pw.println(jsonStrC); // 通过输出流把业务逻辑的结果输出 
+        pw.println(jsonStrC); // 通过输出流把业务逻辑的结果输出  
         pw.flush();
 	}
 
@@ -129,18 +127,7 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("******** Post Request !!! ******");
-		String account = request.getParameter("account");
-		String password = request.getParameter("password");
-		
-		String str = "{\"account\":\""+ account + "\"" + "," + "\"password\":\"" + password + "\"" + "}";
-		System.out.println(str);
-		
-		JSONObject jsonObj = JSONObject.fromObject(str);
-		String jsonStr = jsonObj.toString();
-		
-		PrintWriter pw = response.getWriter(); // 获取 response 的输出流  
-        pw.println(jsonStr); // 通过输出流把业务逻辑的结果输出 
-        pw.flush();
+		doGet(request, response);
 	}
+
 }

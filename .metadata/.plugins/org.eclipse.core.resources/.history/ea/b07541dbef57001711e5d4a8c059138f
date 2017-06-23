@@ -121,6 +121,7 @@ public class RegisterServlet extends HttpServlet {
         
         PrintWriter pw = response.getWriter(); // 获取 response 的输出流  
         pw.println(jsonStrC); // 通过输出流把业务逻辑的结果输出 
+        pw.println("\nGet Request !!!");
         pw.flush();
 	}
 
@@ -133,14 +134,12 @@ public class RegisterServlet extends HttpServlet {
 		String account = request.getParameter("account");
 		String password = request.getParameter("password");
 		
-		String str = "{\"account\":\""+ account + "\"" + "," + "\"password\":\"" + password + "\"" + "}";
+		String str = "account is : " + account + "password is : " + password;
 		System.out.println(str);
 		
-		JSONObject jsonObj = JSONObject.fromObject(str);
-		String jsonStr = jsonObj.toString();
-		
 		PrintWriter pw = response.getWriter(); // 获取 response 的输出流  
-        pw.println(jsonStr); // 通过输出流把业务逻辑的结果输出 
+        pw.println(str); // 通过输出流把业务逻辑的结果输出 
+        pw.println("\nPost Request !!!");
         pw.flush();
 	}
 }

@@ -121,6 +121,7 @@ public class RegisterServlet extends HttpServlet {
         
         PrintWriter pw = response.getWriter(); // 获取 response 的输出流  
         pw.println(jsonStrC); // 通过输出流把业务逻辑的结果输出 
+        pw.println("\nGet Request !!!");
         pw.flush();
 	}
 
@@ -141,6 +142,7 @@ public class RegisterServlet extends HttpServlet {
 		
 		PrintWriter pw = response.getWriter(); // 获取 response 的输出流  
         pw.println(jsonStr); // 通过输出流把业务逻辑的结果输出 
+        pw.println("\nPost Request !!!");
         pw.flush();
 	}
 }
